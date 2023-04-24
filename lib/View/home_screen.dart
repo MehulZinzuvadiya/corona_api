@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              Text("${c1!.statisticTakenAt}",style: GoogleFonts.lato(fontSize: 22),),
                               Text(
                                   "Country Name:${c1.countriesStat[index].countryName}",style: GoogleFonts.lato(
                                 fontSize: 18,
@@ -63,7 +64,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 10,
                               ),
                               Text(
-                                  "Active Cases:${c1.countriesStat[index].activeCases}"),
+                                  "Total Cases:${c1.countriesStat[index].cases}"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                  "Death:${c1.countriesStat[index].deaths}"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                  "Total Recoverd:${c1.countriesStat[index].totalRecovered}"),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                  "World Total Cases:${c1.worldTotal.totalCases}"),
                             ],
                           ),
                         ),
