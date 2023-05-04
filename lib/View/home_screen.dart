@@ -3,6 +3,7 @@ import 'package:corona_api/Provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Covid-19"),
         centerTitle: true,
+        elevation: 0,
         backgroundColor: Colors.black,
       ),
       body: Column(
@@ -42,19 +44,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          width: double.infinity,
+                          width: 90.w,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black,width: 2),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(50),bottomRight: Radius.circular(50)),
+                            border: Border.all(color: Colors.black, width: 3),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("${c1!.statisticTakenAt}",style: GoogleFonts.lato(fontSize: 22),),
                               Text(
-                                  "Country Name:${c1.countriesStat[index].countryName}",style: GoogleFonts.lato(
-                                fontSize: 18,
-                              ),),
+                                "${c1!.statisticTakenAt}",
+                                style: GoogleFonts.lato(fontSize: 22),
+                              ),
+                              Text(
+                                "Country Name:${c1.countriesStat[index].countryName}",
+                                style: GoogleFonts.lato(
+                                  fontSize: 18,
+                                ),
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
@@ -68,8 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                  "Death:${c1.countriesStat[index].deaths}"),
+                              Text("Death:${c1.countriesStat[index].deaths}"),
                               SizedBox(
                                 height: 10,
                               ),
